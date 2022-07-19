@@ -1,0 +1,19 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: docker-k8s-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: docker-k8s-demo
+  template:
+    metadata:
+      name: docker-k8s-demo
+      labels:
+        name: docker-k8s-demo
+    spec:
+      containers:
+        - name: docker-k8s-demo
+          image: vinodroyiit2002/docker-demo
+          command: ["/bin/bash", "-c", "while true; do echo Technical-Guftgu; sleep 5; done"]
